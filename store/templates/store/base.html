@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	{% if title %}
+	<title> Store - {{ title }}</title>
+	{% else %}
+	<title>Store</title>
+	{% endif %}
+	<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div class="header">
+
+	<div class="container">
+		<div class="navbar">
+		<a class="logo" href="{% url 'store-home' %}">
+			<img src="{% static 'store/images/modern-shop.png' %}" width="125px">
+		</a>
+		<nav>
+			<ul>
+				<li><a href="{% url 'store-home' %}">Home</a></li>
+				<li><a href="">Products</a></li>
+				<li><a href="{% url 'store-about' %}">About</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="">Account</a></li>
+			</ul>
+		</nav>
+
+		<a href="">
+			<img src="{% static 'store/images/cart.png' %}" width="30px" height="30px">
+		</a>
+	</div> 
+
+	{% block content %}{% endblock %}
+</body>
+</html>

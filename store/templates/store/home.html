@@ -1,6 +1,7 @@
+{% extends "store/base.html" %}
 {% load static %}
-
-<!DOCTYPE html>
+{% block content %}
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<title>Store Name</title>
@@ -14,7 +15,7 @@
 	<div class="container">
 		<div class="navbar">
 		<div class="logo">
-			<!-- images/logo.png -->
+			images/logo.png
 			<img src="{% static 'store/images/modern-shop.png' %}" width="125px">
 		</div>
 		<nav>
@@ -27,7 +28,7 @@
 			</ul>
 		</nav>
 		<img src="{% static 'store/images/cart.png' %}" width="30px" height="30px">
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="col-2">
 			<h1>Give Your Shopping Experience A New Style! </h1>
@@ -38,13 +39,13 @@
 			<img src="{% static 'store/images/shop-online-button.png' %}">
 		</div>
 	</div>
-	</div>
-</div>
+	<!-- </div>
+</div> -->
+{% endblock content %}
 
 
 
 
 
-
-</body>
-</html>
+<!-- </body>
+</html> -->
