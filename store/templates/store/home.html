@@ -33,7 +33,7 @@
 		<div class="col-2">
 			<h1>Give Your Shopping Experience A New Style! </h1>
 			<p>An online store to shop from the comfort of your home!</p>
-			<a href="" class="btn">Explore Now &#10132;</a>
+			<a href="{% url 'store-products' %}" class="btn">Explore Now &#10132;</a>
 		</div>
 		<div class="col-2">
 			<img src="{% static 'store/images/shop-online-button.png' %}">
@@ -41,6 +41,19 @@
 	</div>
 	<!-- </div>
 </div> -->
+	<div class = "categories">
+		<div class = "row">
+
+			<div class="col-3">
+				<img src="{% static 'store/images/category-1.jpg' %}">
+			</div>
+			<div class="col-3"></div>
+			<div class="col-3"></div>
+			<div class="col-3"></div>
+			
+		</div>
+	</div>
+
 {% endblock content %}
 
 
