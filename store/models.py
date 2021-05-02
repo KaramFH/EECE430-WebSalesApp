@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 
 class Product(models.Model):
-	title = models.CharField(max_length = 100)
+	title = models.CharField(max_length = 255)
 	description = models.TextField()
-	price = models.IntegerField()
+	price = models.FloatField()
 	amount = models.IntegerField()
 	picture = models.ImageField(upload_to = 'product_pictures',default = '')
 	item_number = models.TextField()
