@@ -3,9 +3,13 @@
 {% block content %}
 	{% for product in products %}
 
-		<div>
+		<div class="product_pic">
 			<h2>{{product.title}}</h2>
-			<img src="{{product.picture.url}}">
+			<a href="#">
+				<img src="{{product.picture.url}}">
+			</a>
+			<h2>{{product.price}}</h2>
+			<a href="#">Add to Cart</a>
 		</div>
 
 	{% endfor %}
