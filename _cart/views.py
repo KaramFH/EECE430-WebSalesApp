@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from store.models import Product
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
+from .models import OrderSummary
+
 
 @login_required
 def cart_add(request, id):
@@ -41,7 +43,32 @@ def cart_clear(request):
     cart.clear()
     return redirect("cart_detail")
 
-
+@login_required
 def cart_detail(request):
 
     return render(request, '_cart/cart_detail.html')
+
+
+# def order_summary(request):
+#     cart = Cart(request)
+
+#     for key,value in cart.cart.items():
+#         print(value['name'])
+#         # OrderSummary.add_item(value['name'])
+
+
+#     return redirect("cart_clear")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

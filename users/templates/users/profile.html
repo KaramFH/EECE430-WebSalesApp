@@ -1,6 +1,20 @@
+
 {% extends "store/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-	<h1>{{ user.username }}</h1>
+	{% for profiles in profile%}
+
+		{% if profiles.user == user %}
+			<p>{{ profiles.firstname }}</p>
+			<p>{{ profiles.lastname }}</p>
+			<p>{{ profiles.province }}</p>
+			<p>{{ profiles.city }}</p>
+			<p>{{ profiles.address }}</p>
+			<p>{{ profiles.email }}</p>
+			<p>{{ profiles.phonenumber }}</p>
+		{%endif%}
+	{% endfor %}
+	<a href="{% url 'editprofile' %}">Edit Profile</a>
+
 {% endblock content %}

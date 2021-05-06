@@ -8,7 +8,7 @@ class Product(models.Model):
 	price = models.FloatField()
 	amount = models.IntegerField()
 	image = models.ImageField(upload_to = 'product_pictures',default = '')
-	item_number = models.TextField()
+	item_number = models.CharField(max_length = 255)
 	barcode = models.TextField()
 
 	def image_tag(self):
@@ -25,12 +25,9 @@ class Product(models.Model):
 	def __str__(self):
 		return self.image_tag()
 
-	def add_product_to_cart(self):
-		pass
 
 
-		
-# class Cart(models.Model):
+
 
 
 

@@ -4,7 +4,7 @@ from store.models import Product
 
 # Create your models here.
 class Profile(models.Model):
-	user = models.OneToOneField(User, on_delete = models.CASCADE)
+	user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key= True)
 
 	# items = models.ManyToManyField(Product, blank=True)
 

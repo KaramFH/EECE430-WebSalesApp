@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from django.contrib.auth.models import User
+from django.db import models
+from .models import Profile
 
 # Create your views here.
 
@@ -20,21 +23,18 @@ def register(request):
 
 @login_required
 def profile(request):
-	return render(request,'users/profile.html')
+
+	user = models.OneToOneField(User, on_delete = models.CASCADE)
+
+	profile = Profile.objects.all()
+
+	context = {
+		'profile':profile
+	}
 
 
+	return render(request,'users/profile.html',context)
 
-# @login_required
-# def view_orders(request):
+def editprofile(request):
+	return render(request,'users/editprofile.html')
 
-# 	my_user_profile = Profile.objects.filter(user = request.user).first()
-
-# 	my_orders = Order.objects.filter(is_ordered=True, owner= my_user_profile)
-
-# 	context ={
-
-# 		'my_orders': my_orders
-
-# 	}
-
-# 	return render(request, "_cart/cart_detail.html",context)

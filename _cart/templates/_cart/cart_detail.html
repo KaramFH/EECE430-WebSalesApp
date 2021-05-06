@@ -4,19 +4,33 @@
 
 	{% load cart_tag %}
 
-	Total Length :: {{request.session.cart|length}}
 
-	Cart Detail::
+
+
+<legend class = 'border-bottom mb-4'>Cart</legend>
+
+	<h2 style="font-family: 'georgia;">Number of items in cart: : {{request.session.cart|length}}</h2> <br>
+
+	<h2 style="font-family: 'georgia;">Cart Details:</h2> <br>
+
 	{% for key,value in request.session.cart.items %}
-	    <img src="{{value.image}}" width="120" height="80"><br>
-	    {{value.name}}<br>
-	    {{value.price}} <br>
-	    {{value.quantity}}  <br>
-	    Total {{ value.price|multiply:value.quantity }}
-	    <a href="{% url 'item_increment' value.product_id %}">Increament</a>
-		<a href="{% url 'item_decrement' value.product_id %}">Decrement</a>
+	    <img  src="{{value.image}}" width="120" height="80" style="margin-top:30px;"><br>
+		<span style="font-family: 'georgia; clear:both;">Product name: {{value.name}}</span>
+		<br>
+		<span style="font-family: 'georgia;clear:both;">Product Price: {{value.price}} L.L</span>
+		<br>
+	    Quantity: {{value.quantity}}
+		<button onclick="location.href='{% url 'item_increment' value.product_id %}'" class="linkbutton" style="font-family: georgia; border-radius:8px" >Add</button>
+		<button onclick="location.href='{% url 'item_decrement' value.product_id %}'" class="linkbutton" style="font-family: georgia; border-radius:8px">Remove</button>
+		<br>
+		<span style="font-family: 'georgia;clear:both;">Total for item: {{ value.price|multiply:value.quantity }} L.L</span><br>
+
 	{% endfor %}
 
-	<a href="{% url 'cart_clear' %}">Clear Cart</a>
+<footer>
+	<a href="{% url 'cart_clear' %}" style="float:right;">Clear Cart</a><br>
+	<a href="#" style="float:right;">Purchase</a>
+
+</footer>
 
 {% endblock content %}

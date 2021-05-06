@@ -1,6 +1,10 @@
+
 {% extends "store/base.html" %}
 {% load static %}
 {% block content %}
+
+<legend class = 'border-bottom mb-4'>Products</legend>
+
 <form method="GET">
 	<label>Sort products by price</label><br>
 	<input type="radio" name="sort" value="price"> Lowest to Highest <br>
@@ -16,11 +20,12 @@
 			<a href="#">
 				<img src="{{product.image.url}}" >
 			</a>
-			<h2>{{product.price}}</h2>
-			<a href="{% url 'cart_add' product.id %}">Add to Cart</a>
+			<h2>{{product.price}} L.L</h2>
+			<button onclick="location.href='{% url 'cart_add' product.id %}'">Add to Cart</button>
 		</div>
 
 	{% endfor %}
 </div>
 
 {%  endblock %}
+
