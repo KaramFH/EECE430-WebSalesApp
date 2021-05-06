@@ -11,14 +11,17 @@ def about(request): #about page
 
 def products(request): #products page
 
+	sort = request.GET.get('sort', 'price') 
+	
 	context = {
-		'products' : Product.objects.all()
+		'products' : Product.objects.all().order_by(sort)
 	}	
+
 
 	return render(request,'store/products.html',context)
 
 def contact(request): #contact page
-	return HttpResponse('<h1>Store Contact</h1>')
+	return render(request, 'store/contact.html')
 
 # def account(request): #account page
 # 	return HttpResponse('<h1>Store Account</h1>')

@@ -3,17 +3,17 @@ from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 
 class Product(models.Model):
-	title = models.CharField(max_length = 255)
+	name = models.CharField(max_length = 255)
 	description = models.TextField()
 	price = models.FloatField()
 	amount = models.IntegerField()
-	picture = models.ImageField(upload_to = 'product_pictures',default = '')
+	image = models.ImageField(upload_to = 'product_pictures',default = '')
 	item_number = models.TextField()
 	barcode = models.TextField()
 
 	def image_tag(self):
 	    from django.utils.html import mark_safe
-	    return mark_safe('<img src="%s" width="100px" height="100px" /><h2>%s - %s</h2>'%(self.picture.url, self.title, self.item_number))
+	    return mark_safe('<img src="%s" width="100px" height="100px" /><h2>%s - %s</h2>'%(self.image.url, self.name, self.item_number))
 	image_tag.short_description = 'Image'
 
 	def description_tag(self):

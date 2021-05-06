@@ -1,21 +1,26 @@
 {% extends "store/base.html" %}
 {% load static %}
 {% block content %}
+<form method="GET">
+	<label>Sort products by price</label><br>
+	<input type="radio" name="sort" value="price"> Lowest to Highest <br>
+	<input type="radio" name="sort" value="-price"> Highest to Lowest<br>
+	<input type="submit" value="Sort" style="width: 60px;"></form>
+</form>
+<div style="display: grid; grid-template-columns: auto auto auto; row-gap: 30px; text-align: center;">
+
 	{% for product in products %}
 
 		<div class="product_pic">
-			<h2>{{product.title}}</h2>
+			<h2>{{product.name}}</h2>
 			<a href="#">
-				<img src="{{product.picture.url}}">
+				<img src="{{product.image.url}}" >
 			</a>
 			<h2>{{product.price}}</h2>
-			<a href="">Add to Cart</a>
+			<a href="{% url 'cart_add' product.id %}">Add to Cart</a>
 		</div>
 
 	{% endfor %}
+</div>
 
-
-
-
-
-{% endblock content %}
+{%  endblock %}

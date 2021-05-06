@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
+from _cart import views as cart_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,10 @@ urlpatterns = [
     path('profile/',user_views.profile, name='profile'),
     path('login/',auth_views.LoginView.as_view(template_name = "users/login.html"), name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name = "users/logout.html"), name='logout'),
-    path('cart/',auth_views.LogoutView.as_view(template_name = "_cart/cart_detail.html"), name='cart_details'),
+    path('cart/cart-detail/',cart_views.cart_detail, name='cart_detail'),
+    path('cart/add/<int:id>/',cart_views.cart_add, name='cart_add'),
+    path('cart/item_increment/<int:id>/',cart_views.item_increment, name='item_increment'),
+    path('cart/item_decrement/<int:id>/',cart_views.item_decrement, name='item_decrement'),
+    path('cart/cart_clear/',cart_views.cart_clear, name='cart_clear'),
     path('', include('store.urls')),
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -21,3 +21,20 @@ def register(request):
 @login_required
 def profile(request):
 	return render(request,'users/profile.html')
+
+
+
+# @login_required
+# def view_orders(request):
+
+# 	my_user_profile = Profile.objects.filter(user = request.user).first()
+
+# 	my_orders = Order.objects.filter(is_ordered=True, owner= my_user_profile)
+
+# 	context ={
+
+# 		'my_orders': my_orders
+
+# 	}
+
+# 	return render(request, "_cart/cart_detail.html",context)
