@@ -2,7 +2,7 @@
 Packages needed      Version
 -------------------- -------
 asgiref              3.3.4
-Django               3.2
+Django               3.2 
 django-crispy-forms  1.11.2
 django-mysql         3.11.1
 django-shopping-cart 0.1
